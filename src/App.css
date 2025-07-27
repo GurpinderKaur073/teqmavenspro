@@ -1,0 +1,125 @@
+/* styles/layout.css */
+* {
+  /* margin: 0;
+  padding: 0; */
+  /* box-sizing: border-box; */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: #03061C;
+
+}
+
+div {
+  /* min-height: 50px; */
+  /* border: 1px solid red; */
+}
+
+.grid-bg-pattern div {
+  border-radius: 24px;
+}
+
+/* App.css */
+/* App.css */
+.bgdiv {
+  background-image: url('./assets/div3.png');
+  
+    background-repeat: repeat-y;
+    /* background-size: contain; */
+    background-position: top center;
+
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  /* background-position: center; */
+  outline: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 34px 32px;
+  /* Optional */
+}
+.generatebtn{
+ 
+  min-width: 200px;
+  min-height: 70px;
+}
+.innergrid1 {
+  background-image: url('./assets/bg22.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.bgdiv button{
+  background-color: none;
+}
+.buttoncss{
+  box-shadow: 0 0 0 10px rgba(17, 10, 43, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('./assets/generatebtn.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  
+
+}
+
+.innergrid2 {
+  background-image: url('./assets/bg2.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.innergrid3 {
+  background-image: url('./assets/bg3.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.grid-bg-pattern> :nth-child(2) {
+  position: relative;
+}
+
+.sphere {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  /* height: 40%; */
+}
+.cardbg1{
+position: absolute;
+left: 0;
+bottom: 10%;
+}
+.cardbg2{
+  position: absolute;
+  right: 0;
+  bottom: 10%;
+}
+
+/* @media screen and (min-width: 1000px) {
+  .sphere {
+    width: 30vw;
+  }
+  
+}
+@media screen and (max-width: 550px) {
+  .sphere {
+    width: 80vw;
+  }
+  
+}
+@media screen and (max-width: 480px) {
+  .sphere {
+    width: 100vw;
+  }
+  
+} */
