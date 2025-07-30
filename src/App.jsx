@@ -11,6 +11,8 @@ import aicon from './assets/aicon.png';
 import bg1 from './assets/bg22.png';
 import card1 from './assets/card1.png';
 import card2 from './assets/card2.png';
+import lightcard1 from './assets/lightcard1.png';
+import lightcard2 from './assets/lightcard2.png';
 import cdbg1 from "./assets/card1bg.png";
 import cdbg2 from "./assets/card2bg.png";
 import logo1 from "./assets/logo1.png";
@@ -131,7 +133,7 @@ export default function App() {
         <p className="text-[62px] leading-[56px] font-semibold bg-[linear-gradient(136deg,_rgba(255,178,102,1)_0%,_rgba(233,118,111,1)_49%,_rgba(192,67,80,1)_100%)] bg-clip-text text-transparent">
           12K
         </p>
-        <p className="text-[18px] leading-[24px] mt-[2px] text-[#B2A1FD]">
+        <p className="text-[18px] leading-[24px] mt-[2px] text-[#1b0782] dark:text-[#B2A1FD]">
           after – $5/month
         </p>
         <div className="mt-6 flex justify-center">
@@ -151,8 +153,9 @@ export default function App() {
   }
 
   return (
-    <div className= {`${dark?'dark':''} bg-[#03061C]  min-h-screen flex items-center justify-center`}>
-    {dark ? <SunIcon onClick={()=>toggleTheme()}/> :<MoonIcon onClick={()=>toggleTheme()}/> } <AnimatePresence>
+    <div className= {` dark:bg-[#03061C] bg-[#c1c5e2] relative  min-h-screen flex items-center justify-center`}>
+  <div className='absolute top-4 right-4'>{dark ? <SunIcon onClick={()=>toggleTheme()}/> :<MoonIcon onClick={()=>toggleTheme()}/> } </div> 
+      <AnimatePresence>
         {showPage1 ? (
           <div className=" max-w-[1200px] w-full px-4  "
 
@@ -198,7 +201,7 @@ export default function App() {
                             alt="logo"
                             className="max-w-[100%]  mb-4 pointer-events-none"
                           />
-                          <p className="prompt-head text-[55px] leading-[62px] font-semibold text-[#E6E3FF]">
+                          <p className="prompt-head text-[55px] leading-[62px] font-semibold  text:[#1F1F1F] dark:text-[#E6E3FF]">
                             Your AI Prompt Companion
                           </p>
                         </div>
@@ -229,20 +232,27 @@ export default function App() {
                       <div className="flex justify-between w-full relative gap-2 sm:gap-4">
                         {/* Card 1 with decoration */}
                         <div className="relative w-[48%]">
-                          <img
+                          {dark==="dark"?<img
                             src={card1}
                             alt="card1"
-                            className="w-full h-[107%] rounded-xl object-cover"
+                            className="w-full h-[107%] rounded-xl object-cover "
+                          />:
+                          <img
+                            src={lightcard1}
+                            alt="lcard1"
+                            className="w-full h-[107%] rounded-xl object-cover "
                           />
-                          <div className="flex flex-col absolute  bottom-[0%]">
+                          }
+                          <div className={`flex flex-col absolute  bottom-[0%]  `}>
                             <img
                               src={cdbg2}
                               alt="cdbg1"
-                              className=" max-w-[35%]  pointer-events-none"
+                              className=" max-w-[35%]  pointer-events-none "
                             />
+                            
                             <div className="mt-auto p-[10px] sm:pl-[32px]">
-                              <p className="text-[13px] sm:text-[18px] font-bold text-[#E6E3FF]">Branching paths</p>
-                              <p className="text-[13px] sm:text-[16px] text-[#ACA0E4] mt-[2px]">Explore multiple prompt directions with branching.</p>
+                              <p className="text-[13px] sm:text-[18px] font-bold text:[#1F1F1F] dark:text-[#E6E3FF]">Branching paths</p>
+                              <p className="text-[13px] sm:text-[16px]  text-[#1b0782] dark:text-[#ACA0E4] mt-[2px]">Explore multiple prompt directions with branching.</p>
                             </div>
                           </div>
 
@@ -250,11 +260,17 @@ export default function App() {
 
                         {/* Card 2 with decoration */}
                         <div className="relative w-[48%]">
-                          <img
+                          {dark==="dark"?<img
                             src={card2}
                             alt="card2"
                             className="w-full h-[107%] rounded-xl object-cover"
+                          />:
+                          <img
+                            src={lightcard2}
+                            alt="card2"
+                            className="w-full h-[107%] rounded-xl object-cover"
                           />
+                          }
                           <div className="flex flex-col absolute  bottom-[0%]">
                             <img
                               src={cdbg1}
@@ -262,8 +278,8 @@ export default function App() {
                               className=" max-w-[38%]  pointer-events-none"
                             />
                             <div className="mt-auto p-[10px] sm:pl-[32px]">
-                              <p className="text-[13px] sm:text-[18px] font-bold text-[#E6E3FF]">Keyword enhancer</p>
-                              <p className="text-[13px] sm:text-[16px] text-[#ACA0E4] mt-[2px]">Boost your prompt precision with keywords.</p>
+                              <p className="text-[13px] sm:text-[18px] font-bold text:[#1F1F1F] dark:text-[#E6E3FF]">Keyword enhancer</p>
+                              <p className="text-[13px] sm:text-[16px]  text-[#1b0782] dark:text-[#ACA0E4] mt-[2px]">Boost your prompt precision with keywords.</p>
                             </div>
                           </div>
                         </div>
@@ -298,23 +314,23 @@ export default function App() {
                           opacity: 0
                         }}
                         transition={{ duration: 0.1 }}
-                        className="bgdiv flex flex-col h-[396px] w-full max-w-[320px] mx-auto px-4 items-center sm:items-start text-center sm:text-left">
+                        className={`${dark ? "dark" : "light"} bgdiv flex flex-col h-[396px] w-full max-w-[320px] mx-auto px-4 items-center sm:items-start text-center sm:text-left`}>
                         <div>
                           <img className="w-[54px] h-[44px] mx-auto sm:mx-0" src={d1logo} alt="d1logo" />
-                          <p className="text-[28px] mt-5 font-semibold leading-[34px] bg-gradient-to-r from-white to-[#AA9CFC] bg-clip-text text-transparent">
+                          <p className="text-[28px] mt-5 font-semibold leading-[34px] bg-gradient-to-r from-[#3e3470] to-[#1c1736] dark:bg-gradient-to-r dark:from-white dark:to-[#AA9CFC] bg-clip-text text-transparent">
                             Effortless <br /> Prompt <br /> Perfection
                           </p>
                         </div>
                         <div className="mt-auto">
-                          <p className="text-[18px] font-bold text-[#E6E3FF]">14 days trial</p>
-                          <p className="text-[16px] text-[#ACA0E4] mt-[2px]">after – $5/month</p>
+                          <p className="text-[18px] font-bold text:[#1F1F1F] dark:text-[#E6E3FF]">14 days trial</p>
+                          <p className="text-[16px]  text-[#1b0782] dark:text-[#ACA0E4] mt-[2px]">after – $5/month</p>
                         </div>
                       </motion.div>
 
-                      <div className="bgdiv h-[220px] w-full cursor-pointer" onClick={handleOpenPage2}>
+                      <div  className={`${dark ? "dark" : "light"} bgdiv h-[220px] w-full cursor-pointer`} onClick={handleOpenPage2}>
                         <AvatarGroup />
                       </div>
-                      <div className="bgdiv h-[164px] w-full flex justify-center items-center">
+                      <div  className={`${dark ? "dark" : "light"} bgdiv h-[164px] w-full flex justify-center items-center`}>
                         <span className="buttoncss relative flex items-center gap-2 w-[200px] h-[70px] rounded-full overflow-hidden text-white font-semibold backdrop-blur-md">
                           <div className="absolute inset-0 z-10 rounded-full bg-white/10 shadow-[inset_0_0_8px_rgba(255,255,255,0.1)] pointer-events-none"></div>
                           <div className="relative z-20 flex items-center gap-2 px-4">
@@ -353,7 +369,7 @@ export default function App() {
                           opacity: 0
                         }}
                         transition={{ duration: 0.1 }}
-                        className="bgdiv h-[157px] w-full flex items-center justify-center rounded-xl">
+                         className={`${dark ? "dark" : "light"} bgdiv h-[157px] w-full flex items-center justify-center rounded-xl`}>
                         <div className='border border-[#5B4B89] rounded-full flex justify-between items-center'>
                           <img src={radio} alt="radio" />
                           <div className="w-[18px] h-[18px] border border-[#9F8EFF] mr-4 rounded-[3px]"></div>
@@ -390,9 +406,9 @@ export default function App() {
                           opacity: 0
                         }}
                         transition={{ duration: 0.1 }}
-                        className="bgdiv h-[211px] w-full flex flex-col items-center justify-center rounded-xl px-4 relative">
+                         className={`${dark ? "dark" : "light"} bgdiv h-[211px] w-full flex flex-col items-center justify-center rounded-xl px-4 relative`}>
                         <p className="text-[62px] font-semibold text-transparent bg-gradient-to-r from-[#F5F1FF] to-[#6633EE] bg-clip-text">25M</p>
-                        {/* <p className="text-[#ACA0E4] text-[14px] mt-1">created prompts</p> */}
+                        {/* <p className=" text-[#1b0782] dark:text-[#ACA0E4] text-[14px] mt-1">created prompts</p> */}
                         <div className="relative inline-block">
                           {/* Background Image */}
                           <img src={prompt} alt="prompt" className="block" />
@@ -400,7 +416,7 @@ export default function App() {
                           {/* Typing Text Overlaid */}
                           <div className="absolute inset-0 flex items-center justify-center">
                             <motion.div
-                              className="overflow-hidden text-[#ACA0E4] text-[14px] font-medium"
+                              className="overflow-hidden  text-[#1b0782] dark:text-[#ACA0E4] text-[14px] font-medium"
                               animate={{ width: containerWidth }}
                               transition={{ type: 'tween', duration: 0.1 }}
                               style={{ whiteSpace: 'nowrap' }}
@@ -414,10 +430,10 @@ export default function App() {
                       </motion.div>
 
                       {/* Prompt Templates */}
-                      <div className="bgdiv h-[412px] w-full rounded-xl px-4 py-6 relative cursor-pointer" onClick={handleOpenPage3}>
+                      <div  className={`${dark ? "dark" : "light"} bgdiv h-[412px] w-full rounded-xl px-4 py-6 relative cursor-pointer`} onClick={handleOpenPage3}>
                         <div>
                           <p className="text-white text-[18px] font-bold">Prompt templates</p>
-                          <p className="text-[#ACA0E4] text-[16px] mt-1">Use pre-made templates to jumpstart creativity.</p>
+                          <p className=" text-[#1b0782] dark:text-[#ACA0E4] text-[16px] mt-1">Use pre-made templates to jumpstart creativity.</p>
                         </div>
 
                         {/* Trial Tag */}

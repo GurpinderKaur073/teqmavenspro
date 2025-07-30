@@ -52,7 +52,18 @@ div {
   padding: 34px 32px;
   /* Optional */
 }
+.light.bgdiv {
+  background-image: url('./assets/Rec.png'),linear-gradient(to left,  #6d6f87 50%, #4b4e75 100%);
+   background-blend-mode: overlay;
+  background-repeat: repeat-y;
 
+  background-position: top center;
+
+  outline: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 34px 32px;
+
+}
 .generatebtn {
 
   min-width: 200px;
