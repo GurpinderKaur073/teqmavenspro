@@ -21,7 +21,11 @@ body {
   background-blend-mode: overlay;
 
 }
-
+.bglayer{
+  background-image: url('./assets/Rec.png');
+  background-blend-mode: overlay;
+  
+}
 div {
   /* min-height: 50px; */
   /* border: 1px solid red; */

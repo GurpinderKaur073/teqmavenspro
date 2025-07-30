@@ -127,7 +127,7 @@ export default function App() {
  
   function AvatarGroup({ users = ["anita", "mike", "jane"] }) {
     return (
-      <div className="text-center text-white" onClick={handleOpenPage2}>
+      <div className="text-center text-white" >
         <p className="text-[62px] leading-[56px] font-semibold bg-[linear-gradient(136deg,_rgba(255,178,102,1)_0%,_rgba(233,118,111,1)_49%,_rgba(192,67,80,1)_100%)] bg-clip-text text-transparent">
           12K
         </p>
@@ -151,7 +151,7 @@ export default function App() {
   }
 
   return (
-    <div className= {`${dark?'dark':''} dark:bg-[#03061C] bg-[#c1c5e2] min-h-screen flex items-center justify-center`}>
+    <div className= {`${dark?'dark':''} bg-[#03061C]  min-h-screen flex items-center justify-center`}>
     {dark ? <SunIcon onClick={()=>toggleTheme()}/> :<MoonIcon onClick={()=>toggleTheme()}/> } <AnimatePresence>
         {showPage1 ? (
           <div className=" max-w-[1200px] w-full px-4  "
@@ -311,7 +311,7 @@ export default function App() {
                         </div>
                       </motion.div>
 
-                      <div className="bgdiv h-[220px] w-full">
+                      <div className="bgdiv h-[220px] w-full cursor-pointer" onClick={handleOpenPage2}>
                         <AvatarGroup />
                       </div>
                       <div className="bgdiv h-[164px] w-full flex justify-center items-center">
@@ -414,7 +414,7 @@ export default function App() {
                       </motion.div>
 
                       {/* Prompt Templates */}
-                      <div className="bgdiv h-[412px] w-full rounded-xl px-4 py-6 relative" onClick={handleOpenPage3}>
+                      <div className="bgdiv h-[412px] w-full rounded-xl px-4 py-6 relative cursor-pointer" onClick={handleOpenPage3}>
                         <div>
                           <p className="text-white text-[18px] font-bold">Prompt templates</p>
                           <p className="text-[#ACA0E4] text-[16px] mt-1">Use pre-made templates to jumpstart creativity.</p>
