@@ -1,70 +1,178 @@
 import React from 'react'
 import { motion } from 'framer-motion';
+import sphere from './assets/spahre-blur.png';
+import { FaCogs } from 'react-icons/fa';
+import reclayer from './assets/Rec.png'
+import blursphere from './assets/blursphere.png'
+import blur from './assets/blur.png'
+import framecard from './assets/framecard.png'
+import cardbg from './assets/cardbg.png'
+import cardbtn from './assets/cardbtn.png'
 
-export default function Page1({handleClosePage1}) {
- return (
-		<motion.div className="flex flex-col bg-white" 
-        initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 40 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
-    
-        >
-			<div className="flex flex-col items-start self-stretch bg-[#03061C] h-[765px] rounded-[40px]">
-				<span className='cursor-pointer' onClick={() => handleClosePage1()}>
-                    <img 
-					src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/B1lBMMHttH/7uf2bnsh_expires_30_days.png"} 
-					className="w-[25px] h-[25px] mt-10 mb-2 ml-[955px] rounded-[40px] object-fill"
-				/>
-                </span>
-				<div className="flex flex-col items-start self-stretch relative mb-2 ml-[170px] mr-[70px]">
-					<div className="items-start self-stretch relative">
-						<div className="flex flex-col items-start self-stretch bg-[url('https://storage.googleapis.com/tagjs-prod.appspot.com/v1/B1lBMMHttH/vreokbpm_expires_30_days.png')] bg-cover bg-center relative pt-[76px] pb-40 rounded-[40px]">
-							<div className="w-1 h-[448px] ml-[330px] rounded-[20px] border border-solid border-black" 
-								style={{
-									background: "linear-gradient(180deg, #29292900, #9972FD, #29292900)"
-								}}>
-							</div>
-							<img
-								src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/B1lBMMHttH/5zf8n1t7_expires_30_days.png"} 
-								className="self-stretch h-[275px] absolute top-[172px] right-[202px] left-[202px] rounded-[40px] object-fill"
-							/>
-						</div>
-						<div className="flex flex-col items-start bg-[#FFFFFF0D] w-[326px] absolute relative top-[22px] left-[-82px] rounded-[28px]">
-							<img
-								src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/B1lBMMHttH/c296o13p_expires_30_days.png"} 
-								className="self-stretch h-[183px] rounded-[28px] object-fill"
-							/>
-							<span className="text-[#8498FF] text-4xl font-bold text-right w-[276px] absolute top-6 left-6" >
-								{"GrowthDay, UI/UX Designer"}
-							</span>
-							<span className="text-[#DDDDDD] text-xl text-right w-[277px] absolute bottom-0 left-6" >
-								{"October 2021 - Present | Remote"}
-							</span>
-						</div>
-						<div className="flex flex-col items-start bg-[#FFFFFF26] w-[326px] absolute relative bottom-[70px] left-[-82px] rounded-[28px]">
-							<img
-								src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/B1lBMMHttH/10cwpv6b_expires_30_days.png"} 
-								className="self-stretch h-[183px] rounded-[28px] object-fill"
-							/>
-							<span className="text-[#8498FF] text-4xl font-bold text-right w-[276px] absolute top-6 left-6" >
-								{"GrowthDay, UI/UX Designer"}
-							</span>
-							<span className="text-[#DDDDDD] text-xl text-right w-[277px] absolute bottom-0 left-6" >
-								{"October 2021 - Present | Remote"}
-							</span>
-						</div>
-					</div>
-					<img
-						src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/B1lBMMHttH/zt7w95zu_expires_30_days.png"} 
-						className="w-[400px] h-[156px] absolute top-[190px] right-[3px] rounded-[40px] object-fill"
-					/>
-					<img
-						src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/B1lBMMHttH/dzar1e8p_expires_30_days.png"} 
-						className="w-32 h-16 absolute bottom-[298px] right-0 rounded-[40px] object-fill"
-					/>
-				</div>
+export default function Page1({ handleClosePage1 }) {
+
+	return (
+		<motion.div className="flex flex-col   rounded-full  "
+			initial={{ opacity: 0, y: 40 }}
+			animate={{ opacity: 1, y: 0 }}
+			exit={{ opacity: 0, y: 40 }}
+			transition={{ duration: 0.5 }}
+
+
+		>
+			<motion.img
+				src={sphere}
+				alt="sphere"
+				className="absolute sphere top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 object-contain pointer-events-none z-30"
+				initial={{ scale: 0.7, opacity: 0.5 }}
+				animate={
+					{ scale: 1.8, opacity: 0 }
+
+				}
+				exit={{
+					scale: 1,
+					opacity: 0
+				}}
+				transition={{ duration: 0.5 }}
+			/>
+			<div className="relative w-full   rounded-3xl p-8 flex gap-8 shadow-2xl overflow-hidden bg-[#0B0C1C]"
+
+				style={{
+					backgroundImage: `
+      url(${blursphere}),
+      url(${blur})`,
+					// backgroundSize: 'contain, contain',
+					backgroundPosition: 'center, center',
+					backgroundRepeat: 'no-repeat, no-repeat',
+				}}
+			>
+				<span
+					onClick={handleClosePage1}
+					className="cursor-pointer absolute   top-4 right-4 text-white text-xl transition"
+				>
+					X
+				</span>
+
+				<TaskProgress />
+
 			</div>
 		</motion.div>
 	)
 }
+
+
+const tasks = [
+	{
+		title: "Task One",
+		description: "This is the first task description.",
+	},
+	{
+		title: "Task Two",
+		description: "This is the second task description.",
+	},
+	{
+		title: "Task Three",
+		description: "This is the third task description.",
+	}
+];
+
+function TaskProgress() {
+	return (
+		<div className="container relative w-full py-16  text-white flex justify-center">
+			<div className="relative w-full max-w-6xl px-4 ">
+				{/* Vertical Center Line */}
+				<div style={{
+					background: " linear-gradient(136deg,rgba(41, 41, 41, 1) 0%, rgba(153, 114, 253, 1) 52%, rgba(41, 41, 41, 1) 100%)"
+				}} className="absolute top-0 border border-black bottom-0 left-1/2 transform -translate-x-1/2 w-1 z-0" />
+
+				<div className="flex flex-col gap-20 relative z-10">
+					{tasks.map((task, index) => {
+						const isLeft = index % 2 === 0;
+
+						return (
+							<div
+								key={index}
+								className="flex flex-col md:flex-row items-center w-full"
+							>
+								{/* Left side */}
+								{isLeft && (
+									<>
+										<div className="w-full md:w-1/2 flex justify-end pr-6" style={{
+											opacity: "90%"
+										}}>
+											<img src={framecard} alt="framecard" />
+										</div>
+										{/* Dot */}
+										<div className="hidden md:flex justify-center items-center w-0 relative">
+											<div className="w-5 h-5 bg-purple-500 border-4 border-gray-900 rounded-full absolute left-1/2 transform -translate-x-1/2 z-20" />
+										</div>
+										<div className="hidden md:block w-1/2" />
+									</>
+								)}
+
+								{/* Right side */}
+								{!isLeft && (
+									<>
+										<div className="hidden md:block w-1/2" />
+										{/* Dot */}
+										<div className="hidden md:flex justify-center items-center w-0 relative">
+											<div className="w-5 h-5 bg-purple-500 border-4 border-gray-900 rounded-full absolute left-1/2 transform -translate-x-1/2 z-20" />
+										</div>
+										<div className="w-full md:w-1/2 flex justify-start pl-6 mt-8 md:mt-0">
+											<motion.div
+												initial={{
+													x: '100%',  // start off-screen to the right
+													y: '-200%', // start off-screen from the top
+													opacity: 0.5
+												}}
+												animate={{
+													x: 0,
+													y: 0,
+													opacity: 1
+												}}
+												exit={{
+													opacity: 0
+												}}
+												transition={{ duration: 0.5 }}
+												style={{
+													backgroundImage: `
+														linear-gradient(to bottom, #7B61FF 0%, #5516CC 100%),
+														url(${reclayer})
+													  `,
+													backgroundBlendMode: 'overlay',
+													backgroundSize: 'cover',
+													backgroundRepeat: 'no-repeat',
+												}} className="relative z-10 bg-gradient-to-r from-[#7B61FF] to-[#5516CC] text-white rounded-2xl p-6 w-[320px] md:w-[400px] shadow-lg flex flex-col gap-2">
+												<h2 className="text-[26px] font-semibold">Your AI Prompt Companion</h2>
+												<p className="text-[16px]">Explore multiple prompt directions with branching.</p>
+												<p className="text-[16px] mb-[20px]">Start from 2023</p>
+
+												{/* Settings Icon */}
+												{/* <div className=""> */}
+												<img className='absolute bottom-[10px] right-0 w-[126px] h-[64px]  ' src={cardbg} alt='card' />
+												<motion.img
+													initial={{ opacity: 0 }}
+													animate={
+														{ opacity: 1 }
+
+													}
+													exit={{
+
+														opacity: 1
+													}}
+													transition={{ duration: 0.5, delay: 0.3 }}
+													className='absolute bottom-[19px] right-[68px] w-[50px] h-[50px]  ' src={cardbtn} alt='card' />
+												{/* </div> */}
+											</motion.div>
+										</div>
+									</>
+								)}
+							</div>
+						);
+					})}
+				</div>
+			</div>
+		</div>
+	);
+}
+
